@@ -17,7 +17,7 @@ test/%.o: test/%.c $(ECC)
 	$(ECC) -w -o $@ -c $<
 
 test/%.bin: test/%.o test/testmain.o
-	cc -o $@ $< test/testmain.o $(LDFLAGS)
+	cc -no-pie -o $@ $< test/testmain.o $(LDFLAGS)
 
 self: 8cc cleanobj
 	$(MAKE) CC=$(ECC) CFLAGS= 8cc
